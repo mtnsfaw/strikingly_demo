@@ -52,8 +52,8 @@ public class StringTaskServiceImpl implements StringTaskService {
         Matcher matcher = compile.matcher(content);
         if (matcher.find()) {
             StringPrivateUtil util = new StringPrivateUtil(matcher.group());
-            util.repalceForLeft().repalceAll("}", "").repalceAll(" ","");
-            throw new Exception("because the variable "+util.getContent()+" is missing from the keys of the values object.");
+            util.repalceForLeft().repalceAll("}", "");
+            throw new Exception("because the variable \""+util.getContent().trim()+"\" is missing from the keys of the values object.");
         }
 
         return content;
