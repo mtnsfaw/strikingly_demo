@@ -3,13 +3,14 @@ import com.strikingly.service.impl.StringTaskServiceImpl;
 import org.junit.Test;
 
 /**
- * @Description TODO
+ * @Description 测试类
  * @Author linjie
  * @Date 2022/9/29 22:41
  * @Version 1.0
  */
 public class TestString {
 
+    StringTaskService service = new StringTaskServiceImpl();
     /**
      * Given the following parameters:
      *
@@ -22,8 +23,7 @@ public class TestString {
      */
     @Test
     public void testCase1() throws Exception {
-        StringTaskService service = new StringTaskServiceImpl();
-        String content = "My name is {{ name }} and I am forever {{ age }}.";
+        String content = "My name is {{ name}} and I am forever {{ age }}.";
         String values = "{'name':'Bill','age':21}";
 
         String result = service.rebuildString(content, values);
@@ -42,8 +42,7 @@ public class TestString {
      */
     @Test
     public void testCase2() throws Exception {
-        StringTaskService service = new StringTaskServiceImpl();
-        String content = "Say hello to {{ name }}. He is {{ age }}..";
+        String content = "Say hello to {{ name }}. He is {{ age }}.";
         String values = "{'name':'Bill','age':21,'male':true}";
 
         String result = service.rebuildString(content, values);
@@ -62,7 +61,6 @@ public class TestString {
      */
     @Test
     public void testCase3() throws Exception {
-        StringTaskService service = new StringTaskServiceImpl();
         String content = "Tommy is a good friend of {{ name }}. He lives in {{ city }}.";
         String values = "{'name':'Bill'}";
 

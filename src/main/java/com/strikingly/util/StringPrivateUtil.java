@@ -1,7 +1,7 @@
 package com.strikingly.util;
 
 /**
- * @Description TODO
+ * @Description 字符串-替换内容-应题目要求：不用自带的replace方法
  * @Author linjie
  * @Date 2022/9/29 20:13
  * @Version 1.0
@@ -13,12 +13,9 @@ public class StringPrivateUtil {
      */
     private String content;
 
-    public StringPrivateUtil() {
-
-    }
-
-    public StringPrivateUtil(String content) {
+    public StringPrivateUtil setContent(String content) {
         this.content = content;
+        return this;
     }
 
     public String getContent() {
@@ -33,9 +30,13 @@ public class StringPrivateUtil {
      */
     public StringPrivateUtil repalceAll(String target, String value) {
         int len = 0;
+
+        String pre = "";
+        String tail = "";
+
         while((len=content.indexOf(target)) > 0) {
-            String pre = content.substring(0, len);
-            String tail = content.substring(len + target.length());
+            pre = content.substring(0, len);
+            tail = content.substring(len + target.length());
             content = pre + value + tail;
         }
         return this;
@@ -45,7 +46,7 @@ public class StringPrivateUtil {
      * 针对{，直接去掉前面两个字符
      * @return
      */
-    public StringPrivateUtil repalceForLeft() {
+    public StringPrivateUtil removeLeftBrackets() {
         content = content.substring(2);
         return this;
     }
