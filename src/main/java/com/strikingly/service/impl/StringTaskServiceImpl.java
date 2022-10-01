@@ -19,7 +19,7 @@ public class StringTaskServiceImpl implements StringTaskService {
     @Override
     public String rebuildString(String content, String values) throws Exception {
         /**
-         * step 1:校验参数
+         * step1:校验参数
          */
         Map<String, Object> valuesMap = this.validation(content, values);
         /**
